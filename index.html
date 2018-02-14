@@ -6,29 +6,13 @@
     </head>
     <body>
         <div class="main-div">
-            <input type="button" value="roll" name="" id="roll" onclick="panalController.mouseclick.rollClick()" onmouseover="panalController.mouseOver.rollOver()" onmouseout="panalController.mouseOut.rollOut()">
-            <div class="count-count">
-                <div style="margin-left:10%;">
-                    <div><span>汤菜:&nbsp&nbsp</span><select name="soup-select" id="soup-select"></select><span>&nbsp&nbsp(碗)</span></div>
-                    <div><span>凉菜:&nbsp&nbsp</span><select name="salad-select" id="salad-select"></select><span>&nbsp&nbsp(盘)</span></div>
-                </div>
-                <div style="margin-right:10%;">
-                    <div><span>炒菜:&nbsp&nbsp</span><select name="stirfry-select" id="stirfry-select"></select><span>&nbsp&nbsp(盘)</span></div>
-                    <div><span>蒸菜:&nbsp&nbsp</span><select name="steamed-select" id="steamed-select"></select><span>&nbsp&nbsp(盘)</span></div>
-                </div>
-            </div>
-
+            <input type="button" value="福" name="" id="roll" onclick="panalController.mouseclick.rollClick()" onmouseover="panalController.mouseOver.rollOver()" onmouseout="panalController.mouseOut.rollOut()">
             <div id="resultDiv">
                 <table id='resultTable'>
                     <tbody id='resultTbody'>
-                        <tr>
-                            <td><div name="title">分类</div></td><td><div name="title">编号</div></td><td><div name="title">名称</div></td><td><div name="title">食材</div></td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
-            <div id="materials"><div></div></div>
-            <div class="bottom"></div>
             <a id="githuburl" href="https://github.com/Canonzki/rollyu">GitHub</a>
         </div>
         <script>
@@ -108,129 +92,49 @@
                 panalController.init();
             }
 
-            var dishType = {
-                soup:"soup",
-                stirfry:"stirfry",
-                salad:"salad",
-                steamed:'steamed'
-            }
             var data = {
-                menuBlock:{
-                    soup:[
-                        new dish(1001,'冬瓜汤',dishType.soup,['冬瓜','肉','葱','姜']),
-                        new dish(1002,'白菜汤',dishType.soup,['白菜','肉','葱','姜']),
-                        new dish(1003,'丝瓜汤',dishType.soup,['丝瓜','肉','葱','姜']),
-                        new dish(1004,'南瓜汤',dishType.soup,['南瓜']),
-                    ],
-                    stirfry:[
-                        new dish(2001,'葱爆牛肉',dishType.stirfry,['牛肉','葱','蒜苗','姜','大葱']),
-                        new dish(2002,'葱爆羊肉',dishType.stirfry,['羊肉','葱','蒜苗','姜','大葱']),
-                        new dish(2003,'家常豆腐',dishType.stirfry,['豆腐','葱','蒜苗','姜']),
-                        new dish(2004,'麻婆豆腐',dishType.stirfry,['石膏豆腐','葱','蒜苗','姜','蒜']),
-                        new dish(2005,'爆炒腰花',dishType.stirfry,['腰花','葱','蒜苗','姜','芹菜']),
-                        new dish(2006,'爆炒猪肝',dishType.stirfry,['猪肝','葱','蒜苗','姜','芹菜']),
-                        new dish(2007,'西红柿炒鸡蛋',dishType.stirfry,['鸡蛋','番茄','葱']),
-                        new dish(2008,'韭菜炒鸡蛋',dishType.stirfry,['鸡蛋','韭菜','葱']),
-                        new dish(2009,'青椒土豆丝',dishType.stirfry,['肉','土豆','青椒','葱','姜','蒜苗']),
-                        new dish(2010,'干煸土豆丝',dishType.stirfry,['肉','土豆','葱','姜','蒜苗']),
-                        new dish(2011,'蒜苔炒肉',dishType.stirfry,['肉','蒜苔','葱','姜','蒜苗']),
-                        new dish(2012,'韭菜苔炒肉',dishType.stirfry,['肉','韭菜苔','葱','姜','蒜苗']),
-                        new dish(2013,'酸豇豆肉末',dishType.stirfry,['肉','酸豇豆','葱','姜','蒜苗']),
-                        new dish(2014,'手撕包菜',dishType.stirfry,['肉','包菜','葱','姜','蒜苗']),
-                        new dish(2015,'炒豆芽',dishType.stirfry,['肉','豆芽','葱','姜','蒜苗']),
-                        new dish(2016,'炒胡萝卜',dishType.stirfry,['肉','胡萝卜','葱','姜','蒜苗']),
-                        new dish(2017,'炒洋葱',dishType.stirfry,['肉','洋葱','葱','姜','蒜苗']),
-                        new dish(2018,'炒西兰花',dishType.stirfry,['肉','西兰花','葱','姜','蒜苗']),
-                        new dish(2019,'炒莴笋',dishType.stirfry,['肉','莴笋','葱','姜','蒜苗']),
-                        new dish(2020,'炒毛豆',dishType.stirfry,['肉','毛豆','葱','姜','蒜苗']),
-                        new dish(2021,'炒豌豆',dishType.stirfry,['肉','豌豆','葱','姜','蒜苗']),
-                        new dish(2022,'炒玉米',dishType.stirfry,['肉','玉米','葱','姜','蒜苗']),
-                        new dish(2023,'炒四季豆',dishType.stirfry,['肉','四季豆','葱','姜','蒜苗']),
-                    ],
-                    salad:[
-                        new dish(3001,'蒜末拍黄瓜',dishType.salad,['黄瓜','蒜']),
-                        new dish(3002,'凉拌韭菜',dishType.salad,['韭菜','姜','蒜','葱']),
-                        
-                    ],
-                    steamed:[
-                        new dish(4001,'肉末蒸蛋',dishType.steamed,['鸡蛋','肉末','番茄','葱']),
-                        new dish(4002,'蒸鱼',dishType.steamed,['鱼','葱','姜']),
-                        new dish(4003,'老鸭汤',dishType.steamed,['鸭子','老鸭汤底料','蒜苗','姜','葱']),
-                        new dish(4004,'海带炖排骨',dishType.steamed,['排骨','海带','蒜苗','姜','葱']),
-                        new dish(4005,'萝卜炖排骨',dishType.steamed,['排骨','萝卜','蒜苗','姜','葱']),
-                        new dish(4006,'莲藕炖排骨',dishType.steamed,['排骨','藕','蒜苗','姜','葱']),
-                        new dish(4007,'山药炖排骨',dishType.steamed,['排骨','山药','蒜苗','姜','葱']),
-                        new dish(4008,'炖牛肉',dishType.steamed,['牛肉','蒜苗','姜','葱']),
-                    ]
+                words:[
+                    "恭喜发财",
+                    "岁岁平安",
+                    "心想事成",
+                    "吉祥如意",
+                    "招财进宝",
+                    "金玉满堂",
+                    "阖家幸福",
+                    "步步高升",
+                    "吉星高照",
+                    "一帆风顺",
+                    "十全十美",
+                    "四季平安",
+                    "万事胜意",
+                    "飞黄腾达",
+                    "前程似锦",
+                    "财运亨通",
+                    "意气风发",
+                    "好事连连",
+                    "笑口常开",
+                    "大吉大利",
+                ],
+                getWordsList:function(count){
+                    return data.getRoundList(count,data.words)
                 },
-                getDishList:function(opts){
-                    for(item in opts){
-                        for(menuItem in data.menuBlock){
-                            if(item === menuItem){
-                                optlist = []
-                                optTmp = data.menuBlock[menuItem].clone();
-                                for(var i = 0;i<opts[item];i++){
-                                    var index =  Math.round(Math.random()*(optTmp.length-1));
-                                    optlist.push(optTmp[index]);
-                                    optTmp.splice(index,1);
-                                }
-                                opts[item] = optlist;
-                            }
-                        }
+                getRoundList:function(count,array){
+                    cparray = array.clone();
+                    result = [];
+                    for (i = 0; i<count; i++){
+                        var index =  Math.round(Math.random()*(cparray.length-1));
+                        result.push(cparray[index]);
+                        cparray.splice(index,1);
                     }
-                    return opts;
+                    return result
+                },
+                getContent:function(){
+                    return "霏霏祝您：<br>" + data.getWordsList(2).toString().replace(",","，");
                 }
             }
-            function dish(id,name,type,material) {
-                if(id!==undefined&&id!==null&&!isNaN(id))
-                    this.id = id;
-                else
-                    this.id=-1;
-                if(name!==undefined&&name!==null)
-                    this.name = name.toString();
-                else
-                    this.name='';
-                if(type===dishType.soup)
-                    this.type = dishType.soup;
-                else if(type===dishType.stirfry)
-                    this.type = dishType.stirfry;
-                else if(type===dishType.salad)
-                    this.type = dishType.salad;
-                else if(type===dishType.steamed)
-                    this.type = dishType.steamed;
-                else
-                    this.type = null;
-                if(material instanceof Array)
-                    this.material = material;
-                else
-                    this.material = [];
-            }
+
             var panalController = {
                 init:function(){
-                    for(var i = 0;i<=data.menuBlock.soup.length;i++){
-                        var opt = document.createElement("option");
-                        opt.innerHTML = i.toString();
-                        opt.value = i;
-                        document.getElementById('soup-select').appendChild(opt);
-                    }
-                    for(var i = 0;i<=data.menuBlock.stirfry.length;i++){
-                        var opt = document.createElement("option");
-                        opt.innerHTML = i.toString();
-                        opt.value = i;
-                        document.getElementById('stirfry-select').appendChild(opt)
-                    }
-                    for(var i = 0;i<=data.menuBlock.salad.length;i++){
-                        var opt = document.createElement("option");
-                        opt.innerHTML = i.toString();
-                        opt.value = i;
-                        document.getElementById('salad-select').appendChild(opt)
-                    }
-                    for(var i = 0;i<=data.menuBlock.steamed.length;i++){
-                        var opt = document.createElement("option");
-                        opt.innerHTML = i.toString();
-                        opt.value = i;
-                        document.getElementById('steamed-select').appendChild(opt)
-                    }
                     var titles = document.getElementsByName("title");
                     maxHeight  = 0;
 
@@ -266,7 +170,7 @@
                     return false;
                 },
                 setObjHeight(obj){
-                    obj.style.cssText = "height:" + obj.offsetHeight.toString() + "px;";
+                    obj.style.cssText = "height:" + (obj.offsetHeight * 1.5).toString() + "px;";
                 },
                 setObjZoreHeight(obj){
                     panalController.setObjHeight(obj);
@@ -287,132 +191,47 @@
                         panalController.addClass(tableEles[index],'zeroHeight');
                     }
                 },
+                showResult(){
+                    var tableEles = document.getElementsByClassName('tableEle');
+                    for(index in tableEles){
+                        panalController.removeClass(tableEles[index],'zeroHeight');
+                    }
+                },
                 cleanResult(){
-                    var divStart = '<div name=\"title\">'
-                    var divEnd = '</div>'
+                    document.getElementById('resultTbody').innerHTML = '';
+                },
+                addResult(){
                     var tr = document.createElement("tr");
                     var td = document.createElement("td");
-                    td.innerHTML = divStart + '分类' + divEnd;
+                    div = document.createElement("div");
+                    panalController.addClass(div,'tableEle');
+                    div.innerHTML = data.getContent();
+                    td.appendChild(div);
                     tr.appendChild(td);
-                    td = document.createElement("td");
-                    td.innerHTML = divStart + '编号' + divEnd;
-                    tr.appendChild(td);
-                    td = document.createElement("td");
-                    td.innerHTML = divStart + '名称' + divEnd;
-                    tr.appendChild(td);
-                    td = document.createElement("td");
-                    td.innerHTML = divStart + '食材' + divEnd;
-                    tr.appendChild(td);
-                    document.getElementById('resultTbody').innerHTML = '';
-                    document.getElementById('resultTbody').appendChild(tr);
-                },
-                
-                addResult(oneDish){
-                    trDish = document.createElement("tr");
-                    tdType = document.createElement("td");
-                    divType = document.createElement("div");
-                    panalController.addClass(divType,'tableEle');
-                    divNum = document.createElement("div");
-                    panalController.addClass(divNum,'tableEle');
-                    divName = document.createElement("div");
-                    panalController.addClass(divName,'tableEle');
-                    divEle = document.createElement("div");
-                    panalController.addClass(divEle,'tableEle');
-                    if(oneDish.type === dishType.soup){
-                        divType.innerHTML = '汤菜';
-                    }
-                    else if(oneDish.type === dishType.stirfry){
-                        divType.innerHTML = '炒菜';
-                    }
-                    else if(oneDish.type === dishType.salad){
-                        divType.innerHTML = '凉菜';
-                    }
-                    else if (oneDish.type === dishType.steamed){
-                        divType.innerHTML = '蒸菜';
-                    }
-                    else{
-                        divType.innerHTML = '未知';
-                    }
-                    
-                    tdType.appendChild(divType);
-                    
-
-                    divNum.innerHTML = oneDish.id;
-                    tdNum = document.createElement("td");
-                    tdNum.appendChild(divNum);
-
-                    divName.innerHTML = oneDish.name;
-                    tdName = document.createElement("td");
-                    tdName.appendChild(divName);
-
-                    var ele = "";
-                    for(var i = 0; i < oneDish.material.length;i++){
-                        ele = ele + ',' + oneDish.material[i];
-                    }
-                    ele = ele.substring(1,ele.length);
-                    materials.push.apply(materials,oneDish.material);
-
-                    divEle.innerHTML = ele;
-                    tdEle = document.createElement("td");
-                    tdEle.appendChild(divEle);
-                    trDish.appendChild(tdType);
-                    trDish.appendChild(tdNum);
-                    trDish.appendChild(tdName);
-                    trDish.appendChild(tdEle);
                     panalController.removeClass(document.getElementById('resultDiv'),'heightAuto')
-                    document.getElementById('resultTbody').appendChild(trDish);
-                    window.setTimeout(panalController.heightTrans.bind(null,divType),1);
-                    window.setTimeout(panalController.heightTrans.bind(null,divNum),1);
-                    window.setTimeout(panalController.heightTrans.bind(null,divName),1);
-                    window.setTimeout(panalController.heightTrans.bind(null,divEle),1);
-                    
+                    document.getElementById('resultTbody').appendChild(tr);
+                    window.setTimeout(panalController.heightTrans.bind(null,div),1);
                 },
-                addResults(){
-                    var opts = {}
-                    opts.soup = document.getElementById("soup-select").selectedIndex;
-                    opts.stirfry = document.getElementById("stirfry-select").selectedIndex;
-                    opts.salad = document.getElementById("salad-select").selectedIndex;
-                    opts.steamed = document.getElementById("steamed-select").selectedIndex;
-                    results = data.getDishList(opts);
-                    dishList = [];
-                    for(result in results){
-                        dishList = results[result].reduce(reduceFun,dishList);
-                    }
-                    materials = [];
-                    for(var i=0;i<dishList.length;i++){
-                        panalController.addResult(dishList[i]);
-                    }
-                    materials.deduplication();
-                    eles = "";
-                    for(var i = 0; i < materials.length;i++){
-                            eles = eles + ',' +materials[i];
-                    }
-                    eles = eles.substring(1,eles.length)
-                    divMaterials = document.createElement("div");
-                    divMaterials.innerHTML = eles;
-                    document.getElementById('materials').innerHTML = "";
-                    document.getElementById('materials').appendChild(divMaterials);
-                },
+
                 roll:function(){
-                    if(document.getElementsByTagName('tr').length>1){
+
+                    if(document.getElementsByTagName('tr').length>0){
                         panalController.hiddenResult()
                         if(window.screen.width<=1025)
                             window.setTimeout(function(){panalController.cleanResult();
-                            panalController.addResults();},299);
+                            panalController.addResult();},299);
                         else
                             window.setTimeout(function(){panalController.cleanResult();
-                            panalController.addResults();},399);
+                            panalController.addResult();},399);
                     }
                     else{
                         if(window.screen.width<=1025)
                             window.setTimeout(function(){panalController.cleanResult();
-                            panalController.addResults();},1);
+                            panalController.addResult();},1);
                         else
                             window.setTimeout(function(){panalController.cleanResult();
-                            panalController.addResults();},1);
+                            panalController.addResult();},1);
                     }
-                    
-                    
                 },
                 mouseclick:{
                     rollClick:function(){
@@ -444,11 +263,11 @@
                 padding: 0px;
             }
             body{
-                background-color: #FF6666;
+                background-color: #ff2121;
                 text-align:center
             }
             .main-div{
-                background-color: #FF6666;
+                background-color: #ff2121;
             }
             .zeroHeight{
                 height: 0px !important;
@@ -468,21 +287,6 @@
             #resultTable>tbody>tr{
                 width: 100%;
             }
-            #resultTable>tbody>tr:nth-child(1){
-                border-bottom: solid 1px #FF6666;
-                table-layout: fixed !important;
-            }
-            #resultTable>tbody>tr:last-child{
-                border-bottom: solid 1px #FF6666;
-
-            }
-            #resultTable>tbody>tr:last-child>td{
-                width: 100% !important;
-                table-layout: auto;
-            }
-            #resultTable>tbody>tr:last-child>td>div{
-                width: 100% !important;
-            }
             #resultTable>tbody>tr>td{
                 width: 25%;
                 text-align: center;
@@ -490,7 +294,7 @@
                 display:table-cell; 
             }
             #resultTable>tbody>tr>td>div{
-                margin-top: 8%;
+                margin-top: 2%;
                 margin-bottom: 8%;
                 overflow: hidden;
             }
@@ -500,7 +304,7 @@
                 box-shadow: 3px 3px 3px rgba(0,0,0,.4);
             }
             #githuburl{
-                color: #FFFFFF;
+                color: #fff143;
                 text-decoration: none;
             }
             @media only screen and (min-width: 1025px){
@@ -513,7 +317,7 @@
                 .count-count{
                     margin-left: 33%;
                     width: 34%;
-                    background-color: #ffffff;
+                    background-color: #fff143;
                 }
                 .count-count>div{
                     display:inline-block !important;
@@ -524,7 +328,7 @@
                     margin-bottom: 10%;
                 }
                 .count-count>div>div>span{
-                    color: #FF6666;
+                    color: #ff2121;
                 }
                 .count-count>div>div>select{
                     padding-left: 1%;
@@ -535,9 +339,9 @@
                     display:inline;
                     width: 50%;
                     height: 1%;
-                    border: solid 1px #FF6666;
+                    border: solid 1px #ff2121;
                     border-radius: 0;
-                    color: #FF6666;
+                    color: #ff2121;
                     appearance:none;
                     -moz-appearance:none;
                     -webkit-appearance:none;
@@ -551,8 +355,8 @@
                     -webkit-appearance:option; /* Safari 和 Chrome */
                     width: 20%;
                     height: 1%;
-                    border: solid 1px #FF6666;
-                    color: #FF6666;
+                    border: solid 1px #ff2121;
+                    color: #ff2121;
                     appearance:none;
                     -moz-appearance:none;
                     -webkit-appearance:none;
@@ -560,15 +364,15 @@
                     outline:none;
                 }
                 #roll{
-                    margin-bottom: 2%;
+                    margin-bottom: -1px;
                     margin-top: 2%;
                     width: 34%;
                     height: 10%;
                     border: 0;
                     outline:none;
                     font-size:400%;
-                    background-color: #ffffff;
-                    color: #FFCC99;
+                    background-color: #fff143;
+                    color: #ff2121;
                     -webkit-transform: translateX(0);
                     -moz-transform: translateX(0);
                     -ms-transform: translateX(0);
@@ -580,21 +384,14 @@
                     will-change: margin,height,width,transform;
                 }
                 .rollOver{
-                    margin-bottom: 0px !important;
                     /* width: 16% !important; */
                     height: 12% !important;
-                }
-                .bottom{
-                    background-color: #ffffff;
-                    width:34%;
-                    height:5%;
-                    margin-left:33%;
                 }
                 #resultDiv{
                     margin-left: 33%;
                     width: 34%;
-                    background-color: #ffffff;
-                    color: #FF6666;
+                    background-color: #fff143;
+                    color: #ff2121;
                     overflow: hidden;
                 }
 
@@ -608,12 +405,13 @@
                     -moz-transition: -moz-margin 0.4s,-moz-height 0.4s,-moz-width 0.4s,-moz-transform 0.4s;
                     transition: margin 0.4s,height 0.4s,width 0.4s,transform 0.4s;
                     will-change: margin,height,width,transform;
+                    font-size: 150%;
                 }
                 #materials{
-                    background-color: #ffffff;
+                    background-color: #fff143;
                     width:34%;
                     margin-left:33%;
-                    color:#FF6666;
+                    color:#ff2121;
                     padding-top: 1%;
                 }
                 #materials>div{
@@ -631,7 +429,7 @@
                 .count-count{
                     margin-left: 3%;
                     width: 94%;
-                    background-color: #ffffff;
+                    background-color: #fff143;
                 }
                 .count-count>div{
                     display:inline-block !important;
@@ -643,7 +441,7 @@
                     font-size: 100%;
                 }
                 .count-count>div>div>span{
-                    color: #FF6666;
+                    color: #ff2121;
                 }
                 .count-count>div>div>select{
                     padding-left: 1%;
@@ -653,8 +451,8 @@
                     -webkit-appearance:select; /* Safari 和 Chrome */
                     display:inline;
                     width: auto;
-                    border: solid 1px #FF6666;
-                    color: #FF6666;
+                    border: solid 1px #ff2121;
+                    color: #ff2121;
                     border-radius: 0;
                     appearance:none;
                     -moz-appearance:none;
@@ -670,8 +468,8 @@
                     -webkit-appearance:option; /* Safari 和 Chrome */
                     width: 20%;
                     height: 1%;
-                    border: solid 1px #FF6666;
-                    color: #FF6666;
+                    border: solid 1px #ff2121;
+                    color: #ff2121;
                     appearance:none;
                     -moz-appearance:none;
                     -webkit-appearance:none;
@@ -680,15 +478,15 @@
                     font-size: 100%;
                 }
                 #roll{
-                    margin-bottom: 3%;
+                    margin-bottom: -1px;
                     margin-top: 3%;
                     width: 94%;
                     height: 12%;
                     border: 0;
                     outline:none;
                     font-size:250%;
-                    background-color: #ffffff;
-                    color: #FF6666;
+                    background-color: #fff143;
+                    color: #ff2121;
                     -webkit-transform: translateX(0);
                     -moz-transform: translateX(0);
                     -ms-transform: translateX(0);
@@ -700,21 +498,14 @@
                     will-change: margin,height,width,transform;
                 }
                 .rollOver{
-                    margin-bottom: 0px !important;
                     /* width: 16% !important; */
                     height: 13% !important;
-                }
-                .bottom{
-                    background-color: #ffffff;
-                    width:94%;
-                    height:8%;
-                    margin-left:3%
                 }
                 #resultDiv{
                     margin-left: 3%;
                     width: 94%;
-                    background-color: #ffffff;
-                    color: #FF6666;
+                    background-color: #fff143;
+                    color: #ff2121;
                     font-size: 100%;
                     overflow: hidden;
                 }
@@ -728,13 +519,14 @@
                     -moz-transition: -moz-margin 0.3s,-moz-height 0.3s,-moz-width 0.3s,-moz-transform 0.3s;
                     transition: margin 0.3s,height 0.3s,width 0.3s,transform 0.3s;
                     will-change: margin,height,width,transform;
+                    font-size: 150%;
                 }
                 #materials{
-                    background-color: #ffffff;
+                    background-color: #fff143;
                     font-size: 100%;
                     width:94%;
                     margin-left:3%;
-                    color:#FF6666;
+                    color:#ff2121;
                     padding-top: 1%;
                 }
                 #materials>div{
