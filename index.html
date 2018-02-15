@@ -170,7 +170,7 @@
                     return false;
                 },
                 setObjHeight(obj){
-                    obj.style.cssText = "height:" + (obj.offsetHeight * 2.2).toString() + "px;";
+                    obj.style.cssText = "height:" + (obj.offsetHeight * 2).toString() + "px;";
                 },
                 setObjZoreHeight(obj){
                     panalController.setObjHeight(obj);
@@ -382,6 +382,11 @@
                     -moz-transition: -moz-margin 0.4s,-moz-height 0.4s,-moz-width 0.4s,-moz-transform 0.4s;
                     transition: margin 0.4s,height 0.4s,width 0.4s,transform 0.4s;
                     will-change: margin,height,width,transform;
+                    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2); /* IE6,IE7 */
+                    ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)"; /* IE8 */
+                    -moz-transform: rotate(-180deg); /* 火狐3.5+ */
+                    -o-transform: rotate(-180deg); /* Opera 10.5 */
+                    -webkit-transform: rotate(-180deg); /* Safari 3.1+, Chrome */
                 }
                 .rollOver{
                     /* width: 16% !important; */
@@ -484,7 +489,7 @@
                     height: 62%;
                     border: 0;
                     outline:none;
-                    font-size:600%;
+                    font-size:1200%;
                     background-color: #fff143;
                     color: #ff2121;
                     -webkit-transform: translateX(0);
@@ -496,6 +501,11 @@
                     -moz-transition: -moz-margin 0.3s,-moz-height 0.3s,-moz-width 0.3s,-moz-transform 0.3s;
                     transition: margin 0.3s,height 0.3s,width 0.3s,transform 0.3s;
                     will-change: margin,height,width,transform;
+                    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2); /* IE6,IE7 */
+                    ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)"; /* IE8 */
+                    -moz-transform: rotate(-180deg); /* 火狐3.5+ */
+                    -o-transform: rotate(-180deg); /* Opera 10.5 */
+                    -webkit-transform: rotate(-180deg); /* Safari 3.1+, Chrome */
                 }
                 .rollOver{
                     /* width: 16% !important; */
@@ -519,7 +529,7 @@
                     -moz-transition: -moz-margin 0.3s,-moz-height 0.3s,-moz-width 0.3s,-moz-transform 0.3s;
                     transition: margin 0.3s,height 0.3s,width 0.3s,transform 0.3s;
                     will-change: margin,height,width,transform;
-                    font-size: 220%;
+                    font-size: 180%;
                 }
                 #materials{
                     background-color: #fff143;
